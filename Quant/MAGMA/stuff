@@ -1,0 +1,117 @@
+// ########## matrix.h
+/*
+void friend GEMM(Matrix* A, Matrix* B, Matrix* C, magma_queue_t queue, Complexd* alpha, Complexd* beta, const char _a = 'N', const char _b = 'N') {
+                // -----------------------
+                magma_trans_t tr_a, tr_b;
+
+                switch (_a) {
+                case 'N':
+                        tr_a = MagmaNoTrans;
+                        break;
+                case 'T':
+                        tr_a = MagmaTrans;
+                        break;
+                case 'C':
+                        tr_a = MagmaConjTrans;
+                        break;
+                default:
+                        break;
+                }
+
+                switch (_b) {
+                case 'N':
+                        tr_b = MagmaNoTrans;
+                        break;
+                case 'T':
+                        tr_b = MagmaTrans;
+                        break;
+                case 'C':
+                        tr_b = MagmaConjTrans;
+                        break;
+                default:
+                        break;
+                }
+                // -----------------------
+                magma_zsetmatrix(C->M(), C->N(), C->cpu_data(), C->M(), C->gpu_data(), C->M(), queue);
+
+                Matrix* A_tmp;
+                Matrix* B_tmp;
+
+                if (A == C) {
+                        A_tmp = new Matrix(A->M(), A->N());
+                        memcpy(A_tmp->cpu_data(), A->cpu_data(), A_tmp->M() * A_tmp->N() * sizeof(magmaDoubleComplex));
+                } else {
+                        A_tmp = A;
+                }
+
+                if (B == C) {
+                        B_tmp = new Matrix(B->M(), B->N());
+                        memcpy(B_tmp->cpu_data(), B->cpu_data(), B->M() * B->N() * sizeof(magmaDoubleComplex));
+                } else {
+                        B_tmp = B;
+                }
+
+                // -----------------------------------------------------------------------------------------------------------
+                magma_zsetmatrix(A_tmp->M(), A_tmp->N(), A_tmp->cpu_data(), A_tmp->M(), A_tmp->gpu_data(), A_tmp->M(), queue);
+                magma_zsetmatrix(B_tmp->M(), B_tmp->N(), B_tmp->cpu_data(), B_tmp->M(), B_tmp->gpu_data(), B_tmp->M(), queue);
+                // -----------------------------------------------------------------------------------------------------------
+
+                magma_zgemm(tr_a, tr_b, A->M(), C->N(), A->N(), alpha->value(), A_tmp->gpu_data(), A->M(), B_tmp->gpu_data(), A->N(), beta->value(), C->gpu_data(), A->M(), queue);
+
+                magma_zgetmatrix(C->M(), C->N(), C->gpu_data(), C->M(), C->cpu_data(), C->M(), queue);
+
+                if (A == C) {
+                        delete A_tmp;
+                }
+
+                if (B == C) {
+                        delete B_tmp;
+                }
+        }
+        */
+
+
+
+
+
+
+
+// ############# BP - H_cpp
+        //     for (int i = 0; i < M(); i++) {
+        //         int i_n1 = states_[i].first;
+        //         int i_n2 = states_[i].second;
+
+        //         for (int j = 0; j < N(); j++) {
+        //             if (i == j) {
+        //                 int ph = capacity_ - states_[i].first - states_[i].second;
+        //                 int at = states_[i].first + states_[i].second;
+
+        //                 double val = ph * cv_->wc() + at * cv_->wa();
+
+        //                 set(i, j, val);
+
+        //             } else {
+        //                 int j_n1 = states_[j].first;
+        //                 int j_n2 = states_[j].second;
+
+        //                 if (abs(i_n1 - j_n1) + abs(i_n2 - j_n2) == 1) {
+        //                     int m = 1;
+
+        //                     if (i_n1 != j_n1) {
+        //                         m = min(i_n1, j_n1);
+        //                     } else if (i_n2 != j_n2) {
+        //                         m = min(i_n2, j_n2);
+        //                     }
+
+        //                     int kappa = (n - m) * (m + 1);
+
+        //                     int _max = std::max(capacity_ - i_n1 - i_n2, capacity_ - j_n1 - j_n2);
+
+        //                     double val = cv_->g() * sqrt(max(_max, 0) * kappa);
+        //                     cout << i << " " << j << " -> " << val << endl;
+        //                     set(i, j, val);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
