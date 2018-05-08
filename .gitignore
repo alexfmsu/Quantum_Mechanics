@@ -2,6 +2,6 @@
 out
 config
 Config
-.html
-.jpg
-.png
+*.html
+*.jpg
+*.png
