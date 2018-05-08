@@ -1,1 +1,1 @@
-Установка модулей для питона:"pip install numpy scipy pandas plotly (в командной строке)"(для Python > 3.4 pip устанавливается автоматически)""Запуск:"python BipartiteGeneral.py (либо python3 ...)"python BipartiteGeneralLindblad.py""Конфигурационные файлы:"BipartiteGeneral/config.py"BipartiteGeneralLindblad/config.py"
+
